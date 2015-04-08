@@ -14,7 +14,7 @@ class VKPlaylistsProvider(backend.PlaylistsProvider):
     def __init__(self, *args, **kwargs):
         super(VKPlaylistsProvider, self).__init__(*args, **kwargs)
         self.config = self.backend.config
-        self._playlists = []
+        self._playlists = [] # FIXME: Deprecated since version 1.0: Use as_list() and get_items() instead.
         self.all_lists = {}
         self.refresh()
 
@@ -82,4 +82,10 @@ class VKPlaylistsProvider(backend.PlaylistsProvider):
         backend.BackendListener.send('playlists_loaded')
 
     def save(self, playlist):
-        pass
+        pass  # TODO
+
+    def as_list(self):
+        return _playlists
+
+    def get_items(self, uri):
+        pass # TODO
