@@ -85,7 +85,7 @@ class VKPlaylistsProvider(backend.PlaylistsProvider):
         pass  # TODO
 
     def as_list(self):
-        return _playlists
+        return self._playlists
 
     def get_items(self, uri):
         pass # TODO
