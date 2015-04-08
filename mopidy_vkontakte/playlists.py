@@ -85,7 +85,13 @@ class VKPlaylistsProvider(backend.PlaylistsProvider):
         pass  # TODO
 
     def as_list(self):
-        return self._playlists
+        refs = [
+            Ref.playlist(uri=pl.uri, name=pl.name)
+            for pl in self.all_lists.values()]
+        return refs
 
     def get_items(self, uri):
-        pass # TODO
+        playlist = self.all_lists.get(uri)
+        if playlist is None:
+            return None
+        return [Ref.track(uri=t.uri, name=t.name) for t in playlist.tracks]
