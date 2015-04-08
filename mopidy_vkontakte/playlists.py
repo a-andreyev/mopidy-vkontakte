@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 import logging
 
 from mopidy import backend
-from mopidy.models import Playlist, Track, Artist
+from mopidy.models import Playlist, Track, Artist, Ref
 from urllib import unquote
 logger = logging.getLogger(__name__)
 
